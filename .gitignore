@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+*.sqlite3
+*.db
+__pycache__/
+etron_app/__pycache__/settings.cpython-37.pyc
+etron_app/__pycache__/__init__.cpython-37.pyc
+notes/.DS_Store
+.DS_Store
