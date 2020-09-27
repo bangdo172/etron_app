@@ -25,5 +25,6 @@ class NLP:
         pass 
 
     def processing(self, request):
-        request_processing 
+        # request_processing 
+        pass
 
