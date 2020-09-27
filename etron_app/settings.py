@@ -26,7 +26,7 @@ SECRET_KEY = 'vd_3p0j6xhjphcmkzzg4m6_fhrc*f#r+$*mk@nxpg(*$jhn$*_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'multiselectfield',
+    'django_elasticsearch_dsl',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +84,11 @@ DATABASES = {
     }
 }
 
+ELASTICSEARCH_DSL={
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
