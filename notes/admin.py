@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Message
+from .models import Message, User
 
 admin.site.register(Message)
+admin.site.register(User)
