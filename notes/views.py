@@ -34,6 +34,8 @@ class Index(generics.RetrieveAPIView):
 
     def get(self, request, *args, **kwargs):
         question = request.GET.get('text') 
+        if question is None:
+            question = "What are you looking for?"
 
         context = {
             'answer_list': [
