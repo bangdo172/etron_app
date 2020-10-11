@@ -1,118 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Table V04</title>
+	<title>Etron</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
-<!--===============================================================================================-->	
+	
 	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
-<!--===============================================================================================-->
+
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
-<!--===============================================================================================-->
+
 	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-<!--===============================================================================================-->
+
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
-<!--===============================================================================================-->
+
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
-<!--===============================================================================================-->
+
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
-<!--===============================================================================================-->
+
 	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/recording.css' %}">
 	
 </head>
 <body>
 	{% block content %}
+	<div class="s130">
+		<form>
+			<div class="inner-form">
+			<div class="input-field first-wrap">
+				<div class="svg-wrapper">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+					<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+				</svg>
+				</div>
+				{% if question %}
+				<input id="search" type="text" placeholder="{{question.text}}" />
+				{% else %}
+				<input id="search" type="text" placeholder="What are you looking for?" />
+				{% endif %}
+			</div>
+			<div class="input-field second-wrap">
+				<button class="btn-search" type="button">SPEAK</button>
+			</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="s130">
+		{% if type %}
+		<h3 class="alert-type">{{ type }}</h3>
+		{% else %}
+		{% endif %}
+	</div>
+
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
-				{% if answer_list %}
-					<div class="table100 ver1 m-b-110">
-						<div class="table100-head">
-							<table>
-								<thead>
-									<tr class="row100 head">
-										<th class="cell100 column1">Class name</th>
-										<th class="cell100 column2">Type</th>
-										<th class="cell100 column3">Hours</th>
-										<th class="cell100 column4">Trainer</th>
-										<th class="cell100 column5">Spots</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
-
-						<div class="table100-body js-pscroll">
-							<table>
-								<tbody>
-									{% for answer in answer_list %}
-										<tr class="row100 body">
-											<td class="cell100 column1">{{ answer.name }}</td>
-											<td class="cell100 column2">{{ answer.type }}</td>
-											<td class="cell100 column3">{{ answer.hours }}</td>
-											<td class="cell100 column4">{{ answer.trainer }}</td>
-											<td class="cell100 column5">{{ answer.spots }}</td>
-										</tr>
-									{% endfor %}
-								</tbody>
-							</table>
-						</div>
+				{% if task_list %}
+				<div class="table100 ver1 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Raw Text</th>
+									<th class="cell100 column2">People</th>
+									<th class="cell100 column3">Organization</th>
+									<th class="cell100 column4">Location</th>
+									<th class="cell100 column5">Start Time</th>
+									<th class="cell100 column6">Expire Time</th>
+									<th class="cell100 column7">Priority</th>
+									<th class="cell100 column8">Status</th>
+									<th class="cell100 column9">Version</th>
+								</tr>
+							</thead>
+						</table>
 					</div>
+
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+								{% for answer in task_list %}
+								<tr class="row100 body">
+									<td class="cell100 column1">{{ answer.text }}</td>
+									<td class="cell100 column2">{{ answer.people }}</td>
+									<td class="cell100 column3">{{ answer.organization }}</td>
+									<td class="cell100 column4">{{ answer.location }}</td>
+									<td class="cell100 column5">{{ answer.start }}</td>
+									<td class="cell100 column6">{{ answer.expire }}</td>
+									<td class="cell100 column7">{{ answer.priority }}</td>
+									<td class="cell100 column8">{{ answer.status }}</td>
+									<td class="cell100 column9">{{ answer.version }}</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
 				{% else %}
-					<div class="table100 ver1 m-b-110">
-						<div class="table100-head">
-							<table>
-								<thead>
-									<tr class="row100 head">
-										<th class="cell100 column1">Class name</th>
-										<th class="cell100 column2">Type</th>
-										<th class="cell100 column3">Hours</th>
-										<th class="cell100 column4">Trainer</th>
-										<th class="cell100 column5">Spots</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
-
-						<div class="table100-body js-pscroll">
-							<table>
-								<tbody>
-									<tr class="row100 body">
-										<td class="cell100 column1">Default Like a butterfly</td>
-										<td class="cell100 column2">Boxing</td>
-										<td class="cell100 column3">9:00 AM - 11:00 AM</td>
-										<td class="cell100 column4">Aaron Chapman</td>
-										<td class="cell100 column5">10</td>
-									</tr>
-
-									<tr class="row100 body">
-										<td class="cell100 column1">Default Mind & Body</td>
-										<td class="cell100 column2">Yoga</td>
-										<td class="cell100 column3">8:00 AM - 9:00 AM</td>
-										<td class="cell100 column4">Adam Stewart</td>
-										<td class="cell100 column5">15</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
 				{% endif %}
+
+				{% if old_task_list %}
+				<div class="table100 ver3 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Raw Text</th>
+									<th class="cell100 column2">People</th>
+									<th class="cell100 column3">Organization</th>
+									<th class="cell100 column4">Location</th>
+									<th class="cell100 column5">Start Time</th>
+									<th class="cell100 column6">Expire Time</th>
+									<th class="cell100 column7">Priority</th>
+									<th class="cell100 column8">Status</th>
+									<th class="cell100 column9">Version</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+								{% for answer in old_task_list %}
+								<tr class="row100 body">
+									<td class="cell100 column1">{{ answer.text }}</td>
+									<td class="cell100 column2">{{ answer.people }}</td>
+									<td class="cell100 column3">{{ answer.organization }}</td>
+									<td class="cell100 column4">{{ answer.location }}</td>
+									<td class="cell100 column5">{{ answer.start }}</td>
+									<td class="cell100 column6">{{ answer.expire }}</td>
+									<td class="cell100 column7">{{ answer.priority }}</td>
+									<td class="cell100 column8">{{ answer.status }}</td>
+									<td class="cell100 column9">{{ answer.version }}</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+				{% else %}
+				{% endif %}
+
 			</div>
 		</div>
     </div>
     {% endblock %}
 
 	{% load static %}
-<!--===============================================================================================-->	
+	
 	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-<!--===============================================================================================-->
+
 	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
 	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-<!--===============================================================================================-->
+
 	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
-<!--===============================================================================================-->
 	<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
 	<script>
 		$('.js-pscroll').each(function(){
@@ -122,11 +165,10 @@
 				ps.update();
 			})
 		});
-			
-		
 	</script>
-<!--===============================================================================================-->
+
 	<script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'js/recording.js' %}"></script>
 
 </body>
 </html>
