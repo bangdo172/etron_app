@@ -34,24 +34,49 @@ class Index(generics.RetrieveAPIView):
 
     def get(self, request, *args, **kwargs):
         question = request.GET.get('text') 
-        print(question)
+        if question is None:
+            question = "What are you looking for?"
         
         context = {
-            'answer_list': [
+            'old_task_list': [
                 {
-                    "name": "Like a butterfly",
-                    "type": "Boxing",
-                    "hours": "9:00 AM - 11:00 AM",
-                    "trainer": "Aaron Chapman",
-                    "spots": "10"
+                    "text": "Like a butterfly",
+                    "people": "Cinda",
+                    "organization": "Baidu",
+                    "location": "Hong Kong",
+                    "start": "2:00 AM",
+                    "expire": "11:00 AM",
+                    "priority": "High",
+                    "status": "Doing",
+                    "version": "1"
+                }
+            ],
+            'task_list': [
+                {
+                    "text": "Like a butterfly",
+                    "people": "Aura",
+                    "organization": "Apple Inc",
+                    "location": "NY City",
+                    "start": "9:00 AM",
+                    "expire": "11:00 AM",
+                    "priority": "High",
+                    "status": "Doing",
+                    "version": "2"
                 },
                 {
-                    "name": "Mind & Body",
-                    "type": "Yoga",
-                    "hours": "8:00 AM - 9:00 AM",
-                    "trainer": "Adam Stewart",
-                    "spots": "15"
+                    "text": "Mind & Body",
+                    "people": "John",
+                    "organization": "Google Inc",
+                    "location": "Paris",
+                    "start": "2:00 AM",
+                    "expire": "5:00 AM",
+                    "priority": "Low",
+                    "status": "Pending",
+                    "version": "1"
                 }
-            ]
+            ],
+            'question': {
+                "text": question
+            }
         }
         return response.Response(context, template_name='notes/index.html')

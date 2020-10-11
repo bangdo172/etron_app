@@ -142,7 +142,6 @@ iframe {
 
 .container-table100 {
   width: 100%;
-  min-height: 100vh;
   background: #fff;
 
   display: -webkit-box;
@@ -176,24 +175,40 @@ th, td {
 }
 
 .column1 {
-  width: 33%;
+  width: 35%;
   padding-left: 40px;
 }
 
 .column2 {
-  width: 13%;
+  width: 10%;
 }
 
 .column3 {
-  width: 22%;
+  width: 10%;
 }
 
 .column4 {
-  width: 19%;
+  width: 10%;
 }
 
 .column5 {
-  width: 13%;
+  width: 10%;
+}
+
+.column6 {
+  width: 10%;
+}
+
+.column7 {
+  width: 5%;
+}
+
+.column8 {
+  width: 5%;
+}
+
+.column9 {
+  width: 5%;
 }
 
 .table100-head th {
