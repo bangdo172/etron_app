@@ -1,6 +1,7 @@
 import re
 from .keywords import *
 from ..models import Message, Task, User
+from .witai import WitEndpoint
 
 def update(text, user_id):
     pass
