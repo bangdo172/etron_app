@@ -38,6 +38,7 @@ class Index(generics.RetrieveAPIView):
             question = "What are you looking for?"
         
         context = {
+            'type': "Remind",
             'old_task_list': [
                 {
                     "text": "Like a butterfly",
