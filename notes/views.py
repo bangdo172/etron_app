@@ -34,14 +34,6 @@ class Index(generics.RetrieveAPIView):
 
     def get(self, request, *args, **kwargs):
         question = request.GET.get('text') 
-        print(question)
-        '''
-        Call NLP function
-        '''
-
-        '''
-        Database
-        '''
 
         context = {
             'answer_list': [
