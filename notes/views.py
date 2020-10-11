@@ -32,11 +32,57 @@ class Index(generics.RetrieveAPIView):
     # queryset = User.objects.all()
     renderer_classes = [renderers.TemplateHTMLRenderer]
 
+    def update():
+        pass 
+
+    def remind():
+        pass
+
+    def query():
+        pass
+
     def get(self, request, *args, **kwargs):
         question = request.GET.get('text') 
         if question is None:
             question = "What are you looking for?"
         
+        '''
+            PROCESS NLP 
+            output: structure data
+        '''
+
+        '''
+            PROCESS DATABASE
+            input: structure data
+                {
+                    'type': "Remind",
+                    "text": "Like a butterfly",
+                    "people": "Cinda",
+                    "organization": "Baidu",
+                    "location": "Hong Kong",
+                    "start": "2:00 AM",
+                    "expire": "11:00 AM",
+                    "priority": "High",
+                    "status": "Doing",
+                    "version": "1"
+                }
+            output: context
+        '''
+        structure_data_remind = {
+            "type": "remind",
+            "text": "9h họp với chị yến",
+            "people": "chị yến",
+            "organization": "",
+            "location": "",
+            "start": "",
+            "expire": "",
+            "priority": "",
+            "status": ""
+        }
+        structure_data_update = {}
+        structure_data_query = {}
+        
+
         context = {
             'type': "Remind",
             'old_task_list': [
