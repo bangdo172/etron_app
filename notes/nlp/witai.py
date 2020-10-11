@@ -27,4 +27,3 @@ class NLP:
     def processing(self, request):
         # request_processing 
         pass
-
