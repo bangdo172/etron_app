@@ -10,7 +10,8 @@ def remind(text, user_id):
     text = re.sub("^nhắc tôi ", "", text)
     pass
 
-def query(text, usre_id, requirement_type):
+def query(text, usre_id):
+    
     pass
 
 def classify(text, user_id):
