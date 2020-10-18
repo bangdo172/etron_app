@@ -59,7 +59,7 @@ class Task(models.Model):
     expire_time = models.DateTimeField(null = True, blank=True)
     location = models.TextField(null = True, blank=True)
     person = models.TextField(null = True, blank=True)
-    organize = models.TextField(null = True, blank=True)
+    organization = models.TextField(null = True, blank=True)
     priority = MultiSelectField(choices = PRIORITY_CHOICES, max_choices = 1, null = True)
     status = MultiSelectField(choices = STATUS_CHOICES, max_choices = 1, null = True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
