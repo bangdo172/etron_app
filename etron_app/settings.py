@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'multiselectfield',
     'django_elasticsearch_dsl',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

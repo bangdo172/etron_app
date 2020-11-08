@@ -7,4 +7,3 @@ class WitEndpoint:
 
     def processing(self, text):
         return self.wit_client.message(text)
-        pass
