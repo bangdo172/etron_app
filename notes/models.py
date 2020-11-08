@@ -36,14 +36,14 @@ class User(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)
-    gender = MultiSelectField(choices = GENDER_CHOICES, max_choices = 1)
+    gender = models.IntegerField(choices = GENDER_CHOICES, default = 0)
     avatar = models.ImageField(upload_to=None, null = True)
 
 class Message(models.Model):
     id = models.AutoField(primary_key=True)
     raw_text = models.TextField(default='___ raw text ___')
     create_location = models.TextField(null = True, blank=True)
-    requirement_type = MultiSelectField(choices = STATUS_CHOICES, max_choices = 1, null = True)
+    requirement_type = models.IntegerField(choices = REQUIREMENT_TYPE_CHOICES, default = 0, null = True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     class Meta:
         ordering = ['id']
@@ -59,9 +59,9 @@ class Task(models.Model):
     expire_time = models.DateTimeField(null = True, blank=True)
     location = models.TextField(null = True, blank=True)
     person = models.TextField(null = True, blank=True)
-    organize = models.TextField(null = True, blank=True)
-    priority = MultiSelectField(choices = PRIORITY_CHOICES, max_choices = 1, null = True)
-    status = MultiSelectField(choices = STATUS_CHOICES, max_choices = 1, null = True)
+    organization = models.TextField(null = True, blank=True)
+    priority = models.IntegerField(choices = PRIORITY_CHOICES, default = 0, null = True)
+    status = models.IntegerField(choices = STATUS_CHOICES, default = 1, null = True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     messages = models.ManyToManyField(Message)
     class Meta:

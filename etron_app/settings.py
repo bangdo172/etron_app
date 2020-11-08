@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'multiselectfield',
     'django_elasticsearch_dsl',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +83,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'TIME_ZONE': 'Asia/Ho_Chi_Minh'
     }
 }
 
@@ -115,7 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
 USE_I18N = True
 
@@ -136,4 +139,4 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 } 
 
-TIME_ZONE = 'Asia/Ho_Chi_Minh'
+# TIME_ZONE = 'Asia/Ho_Chi_Minh'
